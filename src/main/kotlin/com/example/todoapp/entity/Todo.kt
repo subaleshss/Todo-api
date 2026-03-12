@@ -23,5 +23,5 @@ class Todo(
     val updatedAt: LocalDateTime = LocalDateTime.now(),
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    val userId: Long,
+    val userId: User,
 )

@@ -4,6 +4,7 @@ import com.example.todoapp.common.ApiResponse
 import com.example.todoapp.dto.SignUpRequest
 import com.example.todoapp.dto.UserResponse
 import com.example.todoapp.entity.User
+import com.example.todoapp.repository.RolesRepository
 import com.example.todoapp.repository.UserRepository
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
@@ -18,7 +19,8 @@ import java.time.LocalDateTime
 @RequestMapping("/api/users")
 class UserController(
     private val userRepository: UserRepository,
-    private val passwordEncoder: PasswordEncoder
+    private val passwordEncoder: PasswordEncoder,
+    private val rolesRepository: RolesRepository,
 ) {
 
     @PostMapping("/register")
@@ -31,6 +33,8 @@ class UserController(
             )
         }
 
+        val userRole = rolesRepository.findByName("USER") ?: throw IllegalStateException("USER role not found")
+
         val user = User(
             firstName = request.firstName,
             lastName = request.lastName,
@@ -39,6 +43,7 @@ class UserController(
             isActive = true,
             createdAt = LocalDateTime.now(),
             updatedAt = LocalDateTime.now(),
+            role = userRole,
         )
 
         val savedUser = userRepository.save(user)

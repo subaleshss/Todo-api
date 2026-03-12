@@ -12,10 +12,10 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "roles")
-class Roles (
+class Role (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?,
+    val id: Long? = null,
     @Column(unique = true,nullable = false)
     val name: String,
     @ManyToMany
@@ -24,5 +24,5 @@ class Roles (
         joinColumns = [JoinColumn(name = "role_id")],
         inverseJoinColumns = [JoinColumn(name = "permission_id")]
     )
-    val permissions: MutableSet<Permissions> = HashSet()
+    val permissions: MutableSet<Permission> = HashSet()
 )

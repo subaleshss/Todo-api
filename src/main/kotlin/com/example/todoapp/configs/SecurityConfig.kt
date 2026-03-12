@@ -24,7 +24,7 @@ class SecurityConfig {
                     "/api/users/login",
                     "/h2-console/**"
                 ).permitAll()
-                .anyRequest().authenticated()
+                it.anyRequest().hasRole("USER")
             }
             .headers { headers ->
                 headers.frameOptions { it.disable() }

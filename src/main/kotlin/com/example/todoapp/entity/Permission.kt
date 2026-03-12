@@ -9,7 +9,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "permissions")
-class Permissions (
+class Permission (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long?,
