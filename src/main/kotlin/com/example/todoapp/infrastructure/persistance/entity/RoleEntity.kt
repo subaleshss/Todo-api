@@ -1,4 +1,4 @@
-package com.example.todoapp.entity
+package com.example.todoapp.infrastructure.persistance.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -12,7 +12,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "roles")
-class Role (
+class RoleEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
@@ -24,5 +24,5 @@ class Role (
         joinColumns = [JoinColumn(name = "role_id")],
         inverseJoinColumns = [JoinColumn(name = "permission_id")]
     )
-    val permissions: MutableSet<Permission> = HashSet()
+    val permissionEntities: MutableSet<PermissionEntity> = HashSet()
 )

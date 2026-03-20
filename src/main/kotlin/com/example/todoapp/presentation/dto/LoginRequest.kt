@@ -1,4 +1,4 @@
-package com.example.todoapp.dto
+package com.example.todoapp.presentation.dto
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank

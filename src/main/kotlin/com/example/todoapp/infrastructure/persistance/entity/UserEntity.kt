@@ -1,4 +1,4 @@
-package com.example.todoapp.entity
+package com.example.todoapp.infrastructure.persistance.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -12,7 +12,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "users")
-class User(
+class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val userId: Long? = null,
@@ -29,5 +29,5 @@ class User(
     val updatedAt: LocalDateTime,
     @ManyToOne
     @JoinColumn(name = "role_id")
-    val role: Role,
+    val roleEntity: RoleEntity,
 )

@@ -1,4 +1,4 @@
-package com.example.todoapp.entity
+package com.example.todoapp.infrastructure.persistance.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -9,7 +9,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "permissions")
-class Permission (
+class PermissionEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long?,

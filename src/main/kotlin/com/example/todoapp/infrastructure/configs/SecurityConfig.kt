@@ -1,4 +1,4 @@
-package com.example.todoapp.configs
+package com.example.todoapp.infrastructure.configs
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -20,8 +20,8 @@ class SecurityConfig {
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests {
                 it.requestMatchers(
-                    "/api/users/register",
-                    "/api/users/login",
+                    "/api/user/register",
+                    "/api/user/login",
                     "/h2-console/**"
                 ).permitAll()
                 it.anyRequest().hasRole("USER")

@@ -1,4 +1,4 @@
-package com.example.todoapp.dto
+package com.example.todoapp.presentation.dto
 
 data class UserResponse(
     val id: Long?,
